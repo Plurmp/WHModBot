@@ -11,7 +11,7 @@ from sqlite3 import Error
 from praw.models import Comment
 from praw import Reddit
 
-import nhentai_fetcher
+import hentai_fetcher
 import wholesomelist_fetcher
 
 removals = json.load(open('removals.json'))
@@ -70,7 +70,7 @@ async def process_comment(comment: Comment, reddit: Reddit):
 
 			for attempt in range(3):
 				try:
-					magazine, market, data = await nhentai_fetcher.check_link(url)
+					magazine, market, data = await hentai_fetcher.check_link(url)
 					if data == "Cloudflare IUAM":
 						iuam = True
 					break
