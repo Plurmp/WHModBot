@@ -150,7 +150,7 @@ async def process_site(link: str) -> (str, list[str], str, list[str], list[str],
 					                              ],
 					                              "namespace": 1
 				                              })
-				resp = await response.json()
+				resp = await response.json(content_type='text/html')
 				if resp['error']:
 					raise RuntimeError(resp['error'])
 				data = resp['gmetadata'][0]
