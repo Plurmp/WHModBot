@@ -141,7 +141,7 @@ async def process_site(link: str) -> (str, list[str], str, list[str], list[str],
 
 		elif 'e-hentai' in link:
 			try:
-				galleryID, galleryToken = re.match(r'/g/(\d+?)/(.+?)/', link).group(1, 2)
+				galleryID, galleryToken = re.search(r'/g/(\d+?)/(.+?)/', link).group(1, 2)
 				response = await session.post('https://api.e-hentai.org/api.php',
 				                              data={
 					                              "method": "gdata",
